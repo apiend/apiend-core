@@ -1,0 +1,4 @@
+github.com/globalsign/mgo v0.0.0-20181015135952-eeefdecb41b8/go.mod h1:xkRDCp4j0OGD1HRkm4kmhM+pmpv3AKq5SU7GMg4oO/Q=
+github.com/gogf/gf v1.6.14/go.mod h1:41x91y5T+itylJH0NsW/CfTD87qeBoPe/BX3DZAwP0U=
+github.com/gogf/gf v1.6.17 h1:Bigs761Ai0/Rx9nEEiPtEy3cDREZ6DDmBM2oxwouIdE=
+github.com/gogf/gf v1.6.17/go.mod h1:41x91y5T+itylJH0NsW/CfTD87qeBoPe/BX3DZAwP0U=

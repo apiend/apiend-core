@@ -1,0 +1,51 @@
+# 应用系统设置
+[setting]
+    # API 服务的名字
+    apiServiceName="apiend"
+    # API的端口号
+    apiport ="8199"
+    # 日志目录
+    logpath = "/www/apiend.com/log"
+    # mongoURL
+    mongoUrl = "mongodb://dbuser:dbuseradmin@10.0.75.1:27017/apiend"
+    # mongoName
+    mgoDbName = "apiend"
+    # 公共目录
+    publicPath="/www/apiend.com/public"
+    # 系统数据 缓存时间
+    cacheTime = "3000"
+    # pudge  数据库 主要是用来 存储 auth token
+    localCacheDB ="/www/apiend.com/db/tokenStore.db"
+    # token 缓存时间 1 小时
+    tokenCacheTime="1"
+# 页面系统配置
+[system]
+    # 标题
+    systemTitle=""
+    # 用户默认头像
+    gravatar = [
+      '//img.souche.com/20161230/png/58f22ad636a0f33bad8762688f78d425.png',
+      '//img.souche.com/20161230/png/6cdcda90c2f86ba1f45393cf5b26e324.png',
+      '//img.souche.com/20161230/png/f9d10bb683d940dd14dc1b1344e89568.png',
+      '//img.souche.com/20161230/png/8bb4f0fd45ed6ae26533eadd85f0f7ea.png',
+      '//img.souche.com/20161230/png/0795744371fd5869af6cab796bdacb95.png',
+      '//img.souche.com/20161230/png/bc836261fbb654dda6b653e428014279.png',
+      '//img.souche.com/20161230/png/fd9f8aecab317e177655049a49b64d02.png'
+    ]
+
+# mysql数据库连接
+[database]
+    [[database.default]]
+        host = "127.0.0.1"
+        port = "3306"
+        user = "root"
+        pass = "123456"
+        name = "test"
+        type = "mysql"
+    [[database.mongo]]
+       host = "127.0.0.2"
+       port = "3306"
+       user = "root"
+       pass = "12345678"
+       name = "test"
+       type = "mysql"
