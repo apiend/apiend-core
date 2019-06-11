@@ -29,11 +29,15 @@ func init() {
 	// glog.SetStdPrint(true)
 	glog.SetDebug(true)
 
+	s.SetLogPath(logpath)
+
 	// Web Server配置 后台不提共 静态目录
 	// publicPath := c.GetString("setting.publicPath")
 	// s.SetServerRoot(publicPath)
+	// TODO 关闭 静态文件服务
+	s.SetFileServerEnabled(false)
 
-	s.SetLogPath(logpath)
+
 
 	// 接口地址的 URI方式
 	s.SetNameToUriType(ghttp.NAME_TO_URI_TYPE_ALLLOWER)

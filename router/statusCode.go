@@ -13,7 +13,7 @@ func init() {
 		404: func(r *ghttp.Request) { r.Response.Writeln("404") },
 		500: func(r *ghttp.Request) { r.Response.Writeln("500") },
 	})
-	// 放开 CORS 限制
+	// TODO: 放开 CORS 限制
 	s.BindHookHandlerByMap("/*any", map[string]ghttp.HandlerFunc{
 		"BeforeServe": func(r *ghttp.Request) {
 
