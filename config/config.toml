@@ -20,7 +20,7 @@
      # mongoName
      mgoDbName = "apiend"
      # 链接池大小
-     mgoPoolSize = 10
+     mgoPoolSize = 20
      # 默认显示
      SlowRes  =100
 
@@ -55,3 +55,11 @@
        pass = "12345678"
        name = "test"
        type = "mysql"
+    [[database.pgsql]]
+      host         = "10.0.75.1"
+      port         = "5432"
+      user         = "apiend"
+      pass         = "123456"
+      name         = "apiend_com"
+      type     = "pgsql"
+#      linkinfo = "user=账号 password=密码 host=地址 port=端口 dbname=数据库名称"

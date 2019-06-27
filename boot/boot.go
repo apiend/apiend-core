@@ -6,6 +6,7 @@
 package boot
 
 import (
+	_ "apiend-core/app/lib/cdb" // 初始化链接mongo
 	"github.com/gogf/gf/g"
 	"github.com/gogf/gf/g/net/ghttp"
 	"github.com/gogf/gf/g/os/glog"

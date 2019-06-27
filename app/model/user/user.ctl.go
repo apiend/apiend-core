@@ -6,35 +6,40 @@
 package user
 
 import (
-	"apiend-core/core/conn"
-	"github.com/globalsign/mgo"
-	"github.com/gogf/gf/g"
-)
-
-var (
-	c = g.Config()
-	// dataBase   = c.GetString("setting.mgoDbName")
-	mongoURL      = c.GetString("mongo.mongoUrl")
-	mongoPoolSize = c.GetInt("mongo.mgoPoolSize")
-	dbName        = c.GetString("mongo.mgoDbName")
+	"apiend-core/app/lib/cdb"
 )
 
 const (
-	// 用户信息
+	// 用户信息 collection
 	CollectionName = "c_user"
-	// 自增
+	// 自增 collection
 	Counter = "counters"
+	// 自增 name
+	CounterName = "user_ids"
 )
 
+var comErr error
+
 //  创建用户
-func (user *UserInfo) Create(doc interface{}) (err error) {
+// func NewUser(Uname, Upassword string) *UserInfo {
+// 	return &UserInfo{Username: Uname, Password: Upassword}
+// }
 
-	expected := &UserInfo{}
+func (user *UserInfo) Create(doc interface{}) error {
+
+	expected := &UserInfo{
+		Username: user.Username,
+		Password: user.Password,
+		NickName: user.NickName,
+		HeadImg:  user.HeadImg,
+	}
 	expected.SetFieldsValue()
+	expected.Uid, _ = cdb.GetAutoId(Counter, CounterName)
+	// conn.GetMgoPool(dbName).Exec(CollectionName, func(c *mgo.Collection) {
+	// 	comErr = c.Insert(expected)
+	// })
 
-	conn.GetMgoPool(dbName).Exec(CollectionName, func(c *mgo.Collection) {
-		err = c.Insert(expected)
-	})
+	comErr = cdb.Insert(CollectionName, expected)
 
-	return err
+	return comErr
 }

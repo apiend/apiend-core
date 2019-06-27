@@ -78,7 +78,7 @@ func (p *MgoPool) Exec(collection string, callback func(*mgo.Collection)) {
 	callback(c)
 }
 // 返回 *mgo.Database
-func (p *MgoPool) ExecDB(collection string)  *mgo.Database {
+func (p *MgoPool) ExecDB(collection string, callback func(database *mgo.Database))  {
 	start := time.Now()
 	_session := p.Get()
 	defer func() {
@@ -90,9 +90,9 @@ func (p *MgoPool) ExecDB(collection string)  *mgo.Database {
 		t := time.Since(start)
 		if t >= p.opt.SlowRes && p.opt.SlowRes != 0 {
 			log.Warnln("mongodb exec ", collection, t)
+
 		}
 	}()
-	c := _session.DB(p.opt.DbName)
-
-	return c
+	callback(_session.DB(p.opt.DbName))
+	// return mdb
 }

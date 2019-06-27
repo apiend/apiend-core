@@ -14,8 +14,8 @@ import (
 // 公用的 Fields
 type PublicFields struct {
 	ID       bson.ObjectId `bson:"_id,omitempty" json:"id,omitempty"`
-	CreatedAt time.Time     `bson:"createdAt" json:"createdAt"`                     // 创建时间
-	UpdatedAt time.Time     `bson:"updatedAt" json:"updatedAt"`                     // 修改时间
+	CreatedAt time.Time     `bson:"createdAt,omitempty" json:"createdAt,omitempty"`                     // 创建时间
+	UpdatedAt time.Time     `bson:"updatedAt,omitempty" json:"updatedAt,omitempty"`                     // 修改时间
 	DeletedAt *time.Time    `bson:"deletedAt,omitempty" json:"deletedAt,omitempty"` // 删除时间
 
 }
@@ -23,7 +23,7 @@ type PublicFields struct {
 
 // SetFieldsValue 设置公共字段值，在插入数据时使用
 func (p *PublicFields) SetFieldsValue() {
-	now := time.Now()
+	now := time.Now().UTC()
 	if !p.ID.Valid() {
 		p.ID = bson.NewObjectId()
 	}

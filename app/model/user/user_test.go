@@ -6,37 +6,50 @@
 package user
 
 import (
-	"apiend-core/core/conn"
-	"github.com/gogf/gf/g/os/glog"
-	"os"
+	"fmt"
+	"sync"
+	"sync/atomic"
 	"testing"
+	"time"
 )
 
-// 设置 db 初始化
-func setDB() {
-	// Mongodb init
-	mgoOption := conn.MgoPoolOption{
-		Host:   mongoURL,
-		Size:   mongoPoolSize,
-		DbName: dbName,
-	}
-	mgoPool, err := conn.NewMgoPool(mgoOption)
-	if err != nil {
-		glog.Debugf("connect mongodb: " + dbName + "  fail")
- 		os.Exit(1)
-	}
-	conn.MgoSet(mgoOption.DbName, mgoPool)
-
-}
-
 func TestUserInfo_Create(t *testing.T) {
-	setDB()
 	model := new(UserInfo)
-
+	model.NickName = "diogoxiang201901"
+	model.SetFieldsValue()
 	err := model.Create(nil)
-
+	// etime := time.Now()
+	// fmt.Println(etime)
 	if err != nil {
 		t.Error(err)
 	}
 
+}
+
+// 测试一下并发写入5000 个用户
+func TestBenchInsert(t *testing.T) {
+	var successCount int32
+	var wg sync.WaitGroup
+	var start = time.Now()
+
+	for i := 0; i < 5000; i++ {
+		wg.Add(1)
+		go func(i int) {
+			defer wg.Done()
+
+			td := &UserInfo{Username: fmt.Sprintf("diogoxiang_%d", i)}
+			td.SetFieldsValue()
+			err := td.Create(nil)
+			if err != nil {
+				t.Error(err)
+				return
+			}
+
+			atomic.AddInt32(&successCount, 1)
+		}(i)
+	}
+
+	wg.Wait()
+
+	fmt.Printf("\nwrite success count = %d, time = %s\n", successCount, time.Now().Sub(start))
 }
