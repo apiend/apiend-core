@@ -1,25 +1,25 @@
 /*
-    fileName: model
-    author: diogoxiang
-    date: 2019/6/10
+   fileName: model
+   author: diogoxiang
+   date: 2019/6/10
 */
 package model
 
 import (
 	"errors"
 	"github.com/globalsign/mgo/bson"
+	"github.com/gogf/gf/g/os/glog"
 	"time"
 )
 
 // 公用的 Fields
 type PublicFields struct {
-	ID       bson.ObjectId `bson:"_id,omitempty" json:"id,omitempty"`
-	CreatedAt time.Time     `bson:"createdAt,omitempty" json:"createdAt,omitempty"`                     // 创建时间
-	UpdatedAt time.Time     `bson:"updatedAt,omitempty" json:"updatedAt,omitempty"`                     // 修改时间
+	ID        bson.ObjectId `bson:"_id,omitempty" json:"id,omitempty"`
+	CreatedAt time.Time     `bson:"createdAt,omitempty" json:"createdAt,omitempty"` // 创建时间
+	UpdatedAt time.Time     `bson:"updatedAt,omitempty" json:"updatedAt,omitempty"` // 修改时间
 	DeletedAt *time.Time    `bson:"deletedAt,omitempty" json:"deletedAt,omitempty"` // 删除时间
 
 }
-
 
 // SetFieldsValue 设置公共字段值，在插入数据时使用
 func (p *PublicFields) SetFieldsValue() {
@@ -31,8 +31,6 @@ func (p *PublicFields) SetFieldsValue() {
 		p.CreatedAt = now
 	}
 }
-
-
 
 // PublicFieldsInt 设置公共字段值，自定id，在插入数据时使用
 type PublicFieldsInt struct {
@@ -56,7 +54,7 @@ func (m *PublicFieldsInt) SetFieldsValue(newID int64) {
 // ----------------------------------- 公共函数 ----------------------------------------
 
 // 执行更新操作之前先判断有没有$操作符
-func checkUpdateContent(update bson.M) error {
+func CheckUpdateContent(update bson.M) error {
 	for k := range update {
 		if k[0] != '$' {
 			return errors.New("update content must start with '$'")
@@ -66,13 +64,13 @@ func checkUpdateContent(update bson.M) error {
 }
 
 // excludeDeleted 不包含已删除的
-func excludeDeleted(selector bson.M) bson.M {
+func ExcludeDeleted(selector bson.M) bson.M {
 	selector["deletedAt"] = bson.M{"$exists": false}
 	return selector
 }
 
 // updatedTime 更新updatedAt时间
-func updatedTime(update bson.M) bson.M {
+func UpdatedTime(update bson.M) bson.M {
 	if v, ok := update["$set"]; ok {
 		v.(bson.M)["updatedAt"] = time.Now()
 	} else {
@@ -82,7 +80,7 @@ func updatedTime(update bson.M) bson.M {
 }
 
 // deletedTime 更新deletedAt时间
-func deletedTime(update bson.M) bson.M {
+func DeletedTime(update bson.M) bson.M {
 	if v, ok := update["$set"]; ok {
 		v.(bson.M)["deletedAt"] = time.Now()
 	} else {
@@ -91,3 +89,9 @@ func deletedTime(update bson.M) bson.M {
 	return update
 }
 
+// model 写log
+func DoLog(err error) {
+	if err != nil {
+		glog.Errorf("%s",err)
+	}
+}

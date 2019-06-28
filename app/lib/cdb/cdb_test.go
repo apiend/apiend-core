@@ -6,7 +6,7 @@
 package cdb
 
 import (
-	"apiend-core/app/model/user"
+	"apiend-core/app/model"
 	"fmt"
 	"github.com/globalsign/mgo"
 	"github.com/globalsign/mgo/bson"
@@ -19,9 +19,22 @@ import (
 
 const testColl = "c_test"
 
+// 这个主要用来测试用的
+type UserInfo struct {
+	model.PublicFields `bson:",inline"` // 公共字段，id和时间
+	Uid                int              `bson:"Uid" json:"Uid"`
+	Username           string           `bson:"Username" json:"Username"`
+	Password           string           `bson:"Password,omitempty" json:"Password,omitempty"`
+	NickName           string           `bson:"NickName,omitempty" json:"NickName,omitempty"` // 在tag里面加上omitempy，可以在序列化的时候忽略0值或者空值
+	HeadImg            string           `bson:"HeadImg,omitempty" json:"HeadImg,omitempty"`
+	// Role     Role          `bson:"role" json:"role"`
+	// Status   UserStatus    `bson:"status" json:"status"`
+}
+
+// 当创建有唯一索引的时候。插入数据失败
 func TestInsert(t *testing.T) {
-	doc := new(user.UserInfo)
-	doc.NickName = "detoxing1"
+	doc := new(UserInfo)
+	doc.Username = "detoxing1"
 	doc.SetFieldsValue()
 
 	err := Insert(testColl, doc)
@@ -29,11 +42,11 @@ func TestInsert(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	t.Log(doc)
+	// t.Log(doc)
 }
 
 func TestFindOne(t *testing.T) {
-	doc := new(user.UserInfo)
+	doc := new(UserInfo)
 	findDoc := bson.M{"Uid": 0}
 
 	err := FindOne(testColl, doc, findDoc, nil)
@@ -48,7 +61,7 @@ func TestFindAll(t *testing.T) {
 	timeString := "2019-06-26 10:00:37.344 +0800 CST"
 	ttime, _ := time.Parse("2006-01-02 15:04:05.999999999 -0700 MST", timeString)
 	// 查找所有数据
-	tds := []user.UserInfo{}
+	tds := []UserInfo{}
 	findDoc := bson.M{"Uid": bson.M{"$gt": 100}, "createdAt": bson.M{
 		"$gt": ttime,
 	}}
@@ -122,7 +135,7 @@ func TestDeleteOneReal(t *testing.T) {
 
 func TestDeleteAllReal(t *testing.T) {
 	selector := bson.M{"Uid": 0}
-	info,err := DeleteAllReal(testColl, selector)
+	info, err := DeleteAllReal(testColl, selector)
 
 	if err != nil {
 		t.Error(err)
@@ -133,7 +146,7 @@ func TestDeleteAllReal(t *testing.T) {
 func TestCount(t *testing.T) {
 	selector := bson.M{"Uid": 0}
 
-	info,err := Count(testColl, selector)
+	info, err := Count(testColl, selector)
 
 	if err != nil {
 		t.Error(err)
@@ -145,7 +158,7 @@ func TestCount(t *testing.T) {
 func TestCountAll(t *testing.T) {
 	selector := bson.M{"Uid": 0}
 
-	info,err := CountAll(testColl, selector)
+	info, err := CountAll(testColl, selector)
 
 	if err != nil {
 		t.Error(err)
@@ -157,16 +170,15 @@ func TestFindAndModify(t *testing.T) {
 
 	selector := bson.M{"Uid": 0}
 	update := bson.M{"$set": bson.M{"Username": "FindAndModify"}}
-	doc := new(user.UserInfo)
+	doc := new(UserInfo)
 
-	info,err := FindAndModify(testColl,doc,selector,update)
+	info, err := FindAndModify(testColl, doc, selector, update)
 
 	if err != nil {
 		t.Error(err)
 	}
 	t.Log(info)
 	t.Log(doc.Username)
-
 
 }
 
@@ -176,7 +188,7 @@ func TestEnsureIndexKey(t *testing.T) {
 		t.Error(err)
 	}
 
-	doc := new(user.UserInfo)
+	doc := new(UserInfo)
 	doc.NickName = "detoxing1"
 	doc.SetFieldsValue()
 
@@ -192,18 +204,26 @@ func TestEnsureIndexKey(t *testing.T) {
 
 // 这个 没整明白 .干啥用的.
 func TestEnsureIndex(t *testing.T) {
-	err := EnsureIndex(testColl, mgo.Index{Key: []string{"name"}, Unique: true})
+	// 创建索引
+	index := mgo.Index{
+		Key:        []string{"Uid", "Username"}, // 索引字段， 默认升序,若需降序在字段前加-
+		Unique:     true,                        // 唯一索引 同mysql唯一索引
+		DropDups:   true,                        // 索引重复替换旧文档,Unique为true时失效
+		Background: true,                        // 后台创建索引
+	}
+
+	err := EnsureIndex(testColl, index)
 	if err != nil {
 		t.Error(err)
 	}
 
-	doc := new(user.UserInfo)
-	doc.NickName = "detoxing1"
+	doc := new(UserInfo)
+	doc.Username = "detoxing1"
 	doc.SetFieldsValue()
 
 	cerr := Insert(testColl, doc)
 
-	if cerr == nil {
+	if cerr != nil {
 		t.Error("index name unique failed")
 		return
 
@@ -223,8 +243,7 @@ func TestBenchInsert(t *testing.T) {
 		go func(i int) {
 			defer wg.Done()
 
-
-			td := user.UserInfo{Username: fmt.Sprintf("zhansan_%d", i), Uid: randAge()}
+			td := UserInfo{Username: fmt.Sprintf("zhansan_%d", i), Uid: randAge()}
 			td.SetFieldsValue()
 			err := Insert(testColl, td)
 			if err != nil {
@@ -253,7 +272,7 @@ func TestBenchRead(t *testing.T) {
 			defer wg.Done()
 
 			selector := bson.M{"Username": fmt.Sprintf("zhansan_%d", i)}
-			td := &user.UserInfo{}
+			td := &UserInfo{}
 			err := FindOne(testColl, td, selector, nil)
 			if err != nil {
 				t.Error(err)
@@ -279,7 +298,6 @@ func TestBenchRead(t *testing.T) {
 	// find success count = 5000, time = 3.2426464s
 
 }
-
 
 func randAge() int {
 	rand.Seed(time.Now().UnixNano())

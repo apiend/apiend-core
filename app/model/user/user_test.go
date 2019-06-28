@@ -7,6 +7,7 @@ package user
 
 import (
 	"fmt"
+	"github.com/globalsign/mgo/bson"
 	"sync"
 	"sync/atomic"
 	"testing"
@@ -52,4 +53,46 @@ func TestBenchInsert(t *testing.T) {
 	wg.Wait()
 
 	fmt.Printf("\nwrite success count = %d, time = %s\n", successCount, time.Now().Sub(start))
+}
+
+func TestInsertUser(t *testing.T) {
+	model := new(UserInfo)
+	model.NickName = "dio201901"
+	err := InsertUser(model)
+	if err != nil {
+		t.Error(err)
+	}
+}
+
+func TestUpdateUser(t *testing.T) {
+
+	selector := bson.M{
+			"Uid":5010,
+	}
+	chance := bson.M{
+		"$set":bson.M{
+			"NickName":"modfiyDio",
+			"Username":"diogoxiang",
+		},
+	}
+
+	err := UpdateUser(selector,chance)
+
+	if err != nil {
+		t.Error(err)
+	}
+
+}
+
+func TestFindById(t *testing.T) {
+
+	oid := "5d15b82d8a5edb2ea813b1d9"
+	puser , err := FindById(oid)
+
+	if err != nil {
+		t.Error(err)
+	}
+
+	t.Log(puser)
+
 }

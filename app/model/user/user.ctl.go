@@ -1,5 +1,5 @@
 /*
-   fileName: mdb
+   fileName: user
    author: diogoxiang
    date: 2019/6/10
 */
@@ -7,6 +7,9 @@ package user
 
 import (
 	"apiend-core/app/lib/cdb"
+	"apiend-core/app/model"
+	"github.com/globalsign/mgo/bson"
+	"github.com/gogf/gf/g/os/glog"
 )
 
 const (
@@ -42,4 +45,64 @@ func (user *UserInfo) Create(doc interface{}) error {
 	comErr = cdb.Insert(CollectionName, expected)
 
 	return comErr
+}
+
+/**
+InsertUser adds the user to the db
+*/
+func InsertUser(user *UserInfo) error {
+
+	user.SetFieldsValue()
+	user.Uid, _ = cdb.GetAutoId(Counter, CounterName)
+
+	err := cdb.Insert(CollectionName, user)
+
+	if err != nil {
+		glog.Errorf("%s", err)
+		return err
+	}
+	return nil
+}
+
+//UpdateUser updates a user with the given id and handler made struct
+func UpdateUser(selector bson.M, update bson.M) error {
+	err := cdb.UpdateOne(CollectionName, selector, update)
+	if err != nil {
+		glog.Errorf("%s", err)
+		// panic(err)
+		return err
+	}
+	return nil
+}
+
+//  Find by id hex
+func FindById(id string) (*UserInfo, error) {
+	oid := bson.ObjectIdHex(id)
+	person := new(UserInfo)
+
+	selector := bson.M{
+		"_id": oid,
+	}
+	fielder := bson.M{
+		"Password": 0,
+	}
+	err := cdb.FindOne(CollectionName, person, selector, fielder)
+
+	model.DoLog(err)
+
+	return person, nil
+}
+
+//  Find by Username
+func FindByName(name string) (*UserInfo, error) {
+
+	person := new(UserInfo)
+
+	selector := bson.M{
+		"Username": name,
+	}
+	err := cdb.FindOne(CollectionName, person, selector, nil)
+
+	model.DoLog(err)
+	return person, nil
 }
