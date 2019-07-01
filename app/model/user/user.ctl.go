@@ -88,7 +88,12 @@ func FindById(id string) (*UserInfo, error) {
 	}
 	err := cdb.FindOne(CollectionName, person, selector, fielder)
 
-	model.DoLog(err)
+
+	if err != nil {
+		model.DoLog(err)
+		// panic(err)
+		return nil, err
+	}
 
 	return person, nil
 }
@@ -103,6 +108,26 @@ func FindByName(name string) (*UserInfo, error) {
 	}
 	err := cdb.FindOne(CollectionName, person, selector, nil)
 
-	model.DoLog(err)
+	if err != nil {
+		model.DoLog(err)
+		// panic(err)
+		return nil, err
+	}
+
+	return person, nil
+}
+
+//  Find by search txt 公用搜索
+func FindBySearch(selector bson.M, fields bson.M) (*UserInfo, error) {
+
+	person := new(UserInfo)
+
+	err := cdb.FindOne(CollectionName, person, selector, fields)
+
+	if err != nil {
+		model.DoLog(err)
+		// panic(err)
+		return nil, err
+	}
 	return person, nil
 }

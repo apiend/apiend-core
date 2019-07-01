@@ -78,7 +78,7 @@ func (p *MgoPool) Exec(collection string, callback func(*mgo.Collection)) {
 	callback(c)
 }
 // 返回 *mgo.Database
-func (p *MgoPool) ExecDB(collection string, callback func(database *mgo.Database))  {
+func (p *MgoPool) ExecDB(collection string, callback func(*mgo.Database))  {
 	start := time.Now()
 	_session := p.Get()
 	defer func() {

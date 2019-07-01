@@ -344,3 +344,12 @@ func GetAutoId(collection string, name string) (id int, err error) {
 	})
 	return
 }
+
+// 公用类获取
+func FetchRef(ref mgo.DBRef) bson.M {
+	var obj = bson.M{}
+	conn.GetMgoPool(dbName).ExecDB("", func(db *mgo.Database) {
+			db.FindRef(&ref).One(&obj)
+	})
+	return obj
+}

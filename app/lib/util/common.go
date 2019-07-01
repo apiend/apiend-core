@@ -39,7 +39,7 @@ func Fill(err error, r *ghttp.Request) {
 }
 
 // 批量判断是否有相应的参数 如果为空则 返回过 nil
-//func QueryFiedsString(p ...string) error {
+//func QueryFieldsString(p ...string) error {
 //
 //	r := make(map[string]interface{},len(p))
 //

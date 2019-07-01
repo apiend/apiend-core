@@ -30,31 +30,42 @@ func (c *UserController) Shut(r *ghttp.Request) {
 }
 // 注册用户 /user/Register
 func (c *UserController) Register(r *ghttp.Request) {
+	glog.Println("Register ")
+	//简单的注册只需要用户名以及密码就行了
+	// postPayload := controller.TranspilePostParams(r)
+	postPayload := r.GetString("username")
+
+	var pd map[string]string
+
+	postData := r.GetPostMap(pd)
+	glog.Println(postData)
+	glog.Println(postPayload)
+
 
 }
 
 // 用户登录 /user/SignUp
 func (c *UserController) SignUp(r *ghttp.Request) {
-
+	glog.Println("SignUp ")
 }
 
 // 修改用户信息 /user/UpdateUser
 func (c *UserController) UpdateUser(r *ghttp.Request) {
-
+	glog.Println("UpdateUser ")
 }
 
 // 获取用户列表 /user/GetList
 func (c *UserController) GetList(r *ghttp.Request) {
-
+	glog.Println("GetList ")
 }
 
 // 根据用户名 查询用户 信息 /user/GetSearchName
 func (c *UserController) GetSearchName(r *ghttp.Request) {
 	// log
-
+	glog.Println("GetSearchName ")
 }
 
 // 根据用户Uid  获取数据 /user/GetByUid
 func (c *UserController) GetByUid(r *ghttp.Request) {
-
+	glog.Println("GetByUid ")
 }

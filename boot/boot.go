@@ -41,8 +41,9 @@ func init() {
 
 
 	// 接口地址的 URI方式
-	s.SetNameToUriType(ghttp.NAME_TO_URI_TYPE_ALLLOWER)
-	// s.SetNameToUriType(ghttp.NAME_TO_URI_TYPE_FULLNAME)
+	// s.SetNameToUriType(ghttp.NAME_TO_URI_TYPE_ALLLOWER)
+	s.SetNameToUriType(ghttp.NAME_TO_URI_TYPE_CAMEL)
+
 
 	s.SetErrorLogEnabled(true)
 	s.SetAccessLogEnabled(true)

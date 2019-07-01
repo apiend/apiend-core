@@ -303,3 +303,45 @@ func randAge() int {
 	rand.Seed(time.Now().UnixNano())
 	return rand.Intn(99) + 1
 }
+
+// 测试Ref
+func TestFetchRef(t *testing.T) {
+	var id = "5d15d94d8a5edb47341f18e7"
+	var ref = mgo.DBRef{
+		Collection: "c_user",
+		Id:         bson.ObjectIdHex(id),
+	}
+	object := FetchRef(ref)
+
+	t.Log(object)
+
+}
+
+// 测试存储数据 DBRef
+func TestSaveRef(t *testing.T) {
+	type uref struct {
+		Id    bson.ObjectId `bson:"_id"`
+		Uinfo mgo.DBRef     `bson:"uinfo"`
+		Ntime time.Time     `bson:"ntime"`
+	}
+
+	us := &uref{}
+
+	var id = "5d15d94d8a5edb47341f18e7"
+	var ref = mgo.DBRef{
+		Collection: "c_user",
+		Id:         id,
+	}
+
+	us.Uinfo = ref
+	us.Id = bson.NewObjectId()
+	us.Ntime = time.Now().UTC()
+	cerr := Insert(testColl, us)
+
+	if cerr != nil {
+		t.Error(cerr)
+		return
+
+	}
+	t.Log(us)
+}
