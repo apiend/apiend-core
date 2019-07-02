@@ -12,7 +12,6 @@ import (
 	"github.com/globalsign/mgo/bson"
 	"github.com/gogf/gf/g"
 	"github.com/gogf/gf/g/os/glog"
-	"os"
 	"time"
 )
 
@@ -44,7 +43,8 @@ func setDB() {
 	mgoPool, err := conn.NewMgoPool(mgoOption)
 	if err != nil {
 		glog.Debugf("connect mongodb: " + dbName + "  fail")
-		os.Exit(1)
+		panic("connect mongodb: " + dbName + "  fail")
+		// os.Exit(1)
 	}
 	conn.MgoSet(mgoOption.DbName, mgoPool)
 	glog.Println("cdb connect mongodb done")

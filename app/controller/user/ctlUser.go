@@ -1,14 +1,19 @@
 /*
-    fileName: user
-    author: diogoxiang
-    date: 2019/6/10
+   fileName: user
+   author: diogoxiang
+   date: 2019/6/10
 */
 package ctlUser
 
 import (
+	"apiend-core/app/lib/response"
+	"apiend-core/app/model"
+	"apiend-core/app/model/user"
+	"fmt"
 	"github.com/gogf/gf/g"
 	"github.com/gogf/gf/g/net/ghttp"
 	"github.com/gogf/gf/g/os/glog"
+	"github.com/gogf/gf/g/util/gvalid"
 )
 
 var (
@@ -28,19 +33,52 @@ func (c *UserController) Init(r *ghttp.Request) {
 func (c *UserController) Shut(r *ghttp.Request) {
 	glog.Println("over ")
 }
+
 // 注册用户 /user/Register
 func (c *UserController) Register(r *ghttp.Request) {
 	glog.Println("Register ")
-	//简单的注册只需要用户名以及密码就行了
-	// postPayload := controller.TranspilePostParams(r)
-	postPayload := r.GetString("username")
 
-	var pd map[string]string
+	// var pd map[string]string
+	// postData := r.GetPostMap(pd)
+	type Tuser struct {
+		Username string `gvalid:"username@required|length:6,30#请输入用户名称|用户名称长度非法"`
+		Password string `gvalid:"password@required|length:6,30#请输入密码|密码长度为6-30"`
+	}
+	tuser := new(Tuser)
+	r.GetToStruct(tuser)
 
-	postData := r.GetPostMap(pd)
-	glog.Println(postData)
-	glog.Println(postPayload)
+	// 验证数据
+	if err := gvalid.CheckStruct(tuser, nil); err != nil {
+		// r.Response.WriteJson(err.String())
+		lib_res.Refail(r, 40030, err.String())
+		// r.ExitAll()
+	}
 
+	// uinfo,err :=user.FindByName(tuser.Username)
+
+	glog.Println("---100---")
+
+	// 如找到用户则直接返回
+	// if uinfo != nil {
+	// 	lib_res.Refail(r, 40001,fmt.Sprint(err))
+	// 	// r.ExitAll()
+	// }
+
+	// 添加用户
+
+	Inuser := new(user.UserInfo)
+
+	Inuser.Username = tuser.Username
+	Inuser.Password = tuser.Password
+
+	err := user.InsertUser(Inuser)
+
+	if err != nil {
+		model.DoLog(err)
+		lib_res.Refail(r, 40030, fmt.Sprint(err))
+	}
+
+	lib_res.Json(r, 200, "")
 
 }
 

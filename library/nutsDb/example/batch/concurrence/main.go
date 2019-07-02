@@ -78,7 +78,7 @@ func main() {
 	removeFlag := false
 
 	opt := nutsdb.DefaultOptions
-	fileDir := "/tmp/nutsdb_example_concurrence"
+	fileDir := "/www/apiend.com/db/"
 
 	if removeFlag {
 		removeFileDir(fileDir)

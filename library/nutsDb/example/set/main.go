@@ -17,7 +17,7 @@ var (
 
 func init() {
 	opt := nutsdb.DefaultOptions
-	fileDir := "/tmp/nutsdb_example"
+	fileDir := "/www/apiend.com/db"
 
 	files, _ := ioutil.ReadDir(fileDir)
 	for _, f := range files {
@@ -40,32 +40,32 @@ func init() {
 
 func main() {
 	testSAdd()
-
-	testSAreMembers()
-
-	testSCard()
-
-	testSDiffByOneBucket()
-
-	testSDiffByTwoBuckets()
-
+	//
+	// testSAreMembers()
+	//
+	// testSCard()
+	//
+	// testSDiffByOneBucket()
+	//
+	// testSDiffByTwoBuckets()
+	//
 	testSHasKey()
-
-	testSIsMember()
-
-	testSMembers()
-
-	testSMoveByOneBucket()
-
-	testSMoveByTwoBuckets()
-
-	testSPop()
-
-	testSRem()
-
-	testSUnionByOneBucket()
-
-	testSUnionByTwoBucket()
+	//
+	// testSIsMember()
+	//
+	// testSMembers()
+	//
+	// testSMoveByOneBucket()
+	//
+	// testSMoveByTwoBuckets()
+	//
+	// testSPop()
+	//
+	// testSRem()
+	//
+	// testSUnionByOneBucket()
+	//
+	// testSUnionByTwoBucket()
 }
 
 func testSAdd() {

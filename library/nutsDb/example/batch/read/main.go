@@ -20,7 +20,7 @@ func init() {
 	opt.StartFileLoadingMode = nutsdb.MMap
 	//opt.RWMode = nutsdb.MMap
 	//opt.SyncEnable = false
-	opt.Dir = "/tmp/nutsdbexample/example_batch"
+	opt.Dir = "/www/apiend.com/db/"
 	db, _ = nutsdb.Open(opt)
 	bucket = "bucket1"
 	fmt.Println("load cost:", time2.End())

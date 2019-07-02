@@ -36,7 +36,7 @@ func Refail(r *ghttp.Request, err int, msg string, data ...interface{}) {
 	msgInfo := gconv.String(util.ReturnCode[errCode])
 	r.Response.WriteJson(g.Map{
 		"code": err,
-		"msg":  msgInfo + msg,
+		"msg":  msgInfo+";" + msg,
 		"data": responseData,
 	})
 	r.Exit()

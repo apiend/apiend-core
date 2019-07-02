@@ -92,6 +92,6 @@ func DeletedTime(update bson.M) bson.M {
 // model 写log
 func DoLog(err error) {
 	if err != nil {
-		glog.Errorf("%s",err)
+		glog.Printf("%s",err)
 	}
 }

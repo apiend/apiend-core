@@ -9,7 +9,6 @@ import (
 	"apiend-core/app/lib/cdb"
 	"apiend-core/app/model"
 	"github.com/globalsign/mgo/bson"
-	"github.com/gogf/gf/g/os/glog"
 )
 
 const (
@@ -58,7 +57,8 @@ func InsertUser(user *UserInfo) error {
 	err := cdb.Insert(CollectionName, user)
 
 	if err != nil {
-		glog.Errorf("%s", err)
+		// glog.Errorf("%s", err)
+		model.DoLog(err)
 		return err
 	}
 	return nil
@@ -68,8 +68,9 @@ func InsertUser(user *UserInfo) error {
 func UpdateUser(selector bson.M, update bson.M) error {
 	err := cdb.UpdateOne(CollectionName, selector, update)
 	if err != nil {
-		glog.Errorf("%s", err)
+		// glog.Errorf("%s", err)
 		// panic(err)
+		model.DoLog(err)
 		return err
 	}
 	return nil

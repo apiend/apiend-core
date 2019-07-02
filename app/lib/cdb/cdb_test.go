@@ -330,7 +330,7 @@ func TestSaveRef(t *testing.T) {
 	var id = "5d15d94d8a5edb47341f18e7"
 	var ref = mgo.DBRef{
 		Collection: "c_user",
-		Id:         id,
+		Id:bson.ObjectIdHex(id),
 	}
 
 	us.Uinfo = ref

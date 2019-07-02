@@ -7,11 +7,8 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
-	"log"
-	"os"
-
 	"github.com/xujiajun/nutsdb"
+	"log"
 )
 
 var (
@@ -21,20 +18,20 @@ var (
 
 func init() {
 	opt := nutsdb.DefaultOptions
-	fileDir := "/www/apiend.com/db/"
+	fileDir := "/www/apiend.com/db"
 
 
-	files, _ := ioutil.ReadDir(fileDir)
-	for _, f := range files {
-		name := f.Name()
-		if name != "" {
-			fmt.Println(fileDir + "/" + name)
-			err := os.Remove(fileDir + "/" + name)
-			if err != nil {
-				panic(err)
-			}
-		}
-	}
+	// files, _ := ioutil.ReadDir(fileDir)
+	// for _, f := range files {
+	// 	name := f.Name()
+	// 	if name != "" {
+	// 		fmt.Println(fileDir + "/" + name)
+	// 		err := os.Remove(fileDir + "/" + name)
+	// 		if err != nil {
+	// 			panic(err)
+	// 		}
+	// 	}
+	// }
 	opt.Dir = fileDir
 	opt.SegmentSize = 1024 * 1024 // 1MB
 	db, _ = nutsdb.Open(opt)
@@ -43,24 +40,24 @@ func init() {
 
 func main() {
 	//insert
-	put()
+	// put()
 	//read
 	read()
 
-	//delete
-	delete()
-	//read
-	read()
-
-	//insert
-	put()
-	//read
-	read()
-
-	//update
-	put2()
-	//read
-	read()
+	// //delete
+	// delete()
+	// //read
+	// read()
+	//
+	// //insert
+	// put()
+	// //read
+	// read()
+	//
+	// //update
+	// put2()
+	// //read
+	// read()
 }
 
 func delete() {
@@ -78,7 +75,7 @@ func put() {
 		func(tx *nutsdb.Tx) error {
 			key := []byte("name1")
 			val := []byte("val1")
-			return tx.Put(bucket, key, val, 0)
+			return tx.Put(bucket, key, val, 60)
 		}); err != nil {
 		log.Fatal(err)
 	}
