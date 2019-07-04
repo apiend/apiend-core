@@ -8,10 +8,12 @@ package cdb
 import (
 	"apiend-core/app/lib/cdb/mid"
 	"apiend-core/core/conn"
+	"errors"
 	"github.com/globalsign/mgo"
 	"github.com/globalsign/mgo/bson"
 	"github.com/gogf/gf/g"
 	"github.com/gogf/gf/g/os/glog"
+	"github.com/gogf/gf/g/text/gstr"
 	"time"
 )
 
@@ -63,7 +65,12 @@ func Insert(collection string, doc interface{}) (err error) {
 		err = c.Insert(doc)
 	})
 	if err != nil {
-		return err
+		if gstr.Contains(err.Error(), "E1100") {
+			return errors.New("duplicate key")
+		} else {
+			return err
+		}
+
 	}
 	return nil
 }
@@ -349,7 +356,7 @@ func GetAutoId(collection string, name string) (id int, err error) {
 func FetchRef(ref mgo.DBRef) bson.M {
 	var obj = bson.M{}
 	conn.GetMgoPool(dbName).ExecDB("", func(db *mgo.Database) {
-			db.FindRef(&ref).One(&obj)
+		db.FindRef(&ref).One(&obj)
 	})
 	return obj
 }

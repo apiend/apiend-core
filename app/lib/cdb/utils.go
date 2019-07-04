@@ -9,6 +9,8 @@ import (
 	"errors"
 	"fmt"
 	"github.com/globalsign/mgo/bson"
+	"github.com/gogf/gf/g/encoding/ghash"
+	"github.com/gogf/gf/g/util/gconv"
 	"math/rand"
 	"reflect"
 	"strings"
@@ -55,6 +57,27 @@ func callToDoc(method string, doc interface{}) error {
 	return nil
 }
 
+// 加密
+func Encrypt(password string, salt string) string {
+	// crypto
+	// hasher := crypto.SHA512.New()
+	// hasher.Write([]byte(salt))
+	// hasher.Write([]byte(password))
+	// hv := hasher.Sum(nil)
+	// for i := 0 ; i < 512; i++ {
+	// 	hasher.Reset()
+	// 	hasher.Write(hv)
+	// 	hv = hasher.Sum(nil)
+	// }
+	// base64String := base64.StdEncoding.EncodeToString(hv)
+	// return base64String
+	var eString = password + salt
+
+	temp := ghash.APHash(gconv.Bytes(eString))
+	return gconv.String(temp)
+
+}
+
 // Salt 生成一个盐值
 func Salt(size int, needUpper bool) string {
 	// 按需要生成字符串
@@ -95,6 +118,7 @@ func Number() byte {
 	result := byte(numberhouse[0] + rand.Intn(10))
 	return result
 }
+
 // Lower 随机生成大写字母
 func Upper() byte {
 	upperhouse := []int{65, 90}
@@ -102,12 +126,13 @@ func Upper() byte {
 	return result
 }
 
-
 func DealWithSort(sort string) bson.M {
-	if sort == "" {return  bson.M{}}
-	if sort[0: 1] == "-"{
-		var key = sort[1 : len(sort)]
-		return  bson.M{
+	if sort == "" {
+		return bson.M{}
+	}
+	if sort[0:1] == "-" {
+		var key = sort[1:len(sort)]
+		return bson.M{
 			key: -1,
 		}
 	}

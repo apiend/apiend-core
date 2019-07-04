@@ -92,6 +92,16 @@ func DeletedTime(update bson.M) bson.M {
 // model 写log
 func DoLog(err error) {
 	if err != nil {
-		glog.Printf("%s",err)
+		glog.Printf("%s", err)
 	}
+}
+
+// Query Model
+type QueryModel struct {
+	Where   string `form:"where"`
+	Include string `form:"include"`
+	Skip    int    `form:"skip"`
+	Limit   int    `form:"limit"`
+	Count   int    `form:"count"`
+	Order   string `form:"order"`
 }

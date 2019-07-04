@@ -66,33 +66,53 @@ func (p *MgoPool) Exec(collection string, callback func(*mgo.Collection)) {
 	defer func() {
 		p.Put(_session)
 		if err := recover(); err != nil {
-			log.Errorln("mongodb exec err, ", err)
+			log.Errorln("mongodb Exec err, ", err)
 			panic(err)
 		}
 		t := time.Since(start)
 		if t >= p.opt.SlowRes && p.opt.SlowRes != 0 {
-			log.Warnln("mongodb exec ", collection, t)
+			log.Warnln("mongodb Exec ", collection, t)
 		}
 	}()
 	c := _session.DB(p.opt.DbName).C(collection)
 	callback(c)
 }
+
 // 返回 *mgo.Database
-func (p *MgoPool) ExecDB(collection string, callback func(*mgo.Database))  {
+func (p *MgoPool) ExecDB(collection string, callback func(*mgo.Database)) {
 	start := time.Now()
 	_session := p.Get()
 	defer func() {
 		p.Put(_session)
 		if err := recover(); err != nil {
-			log.Errorln("mongodb exec err, ", err)
+			log.Errorln("ExecDB mongodb exec err, ", err)
 			panic(err)
 		}
 		t := time.Since(start)
 		if t >= p.opt.SlowRes && p.opt.SlowRes != 0 {
-			log.Warnln("mongodb exec ", collection, t)
+			log.Warnln("ExecDB mongodb exec ", collection, t)
 
 		}
 	}()
 	callback(_session.DB(p.opt.DbName))
 	// return mdb
+}
+
+// 另类返回 *mgo.Database
+func (p *MgoPool) ExportDB() *mgo.Database {
+	start := time.Now()
+	_session := p.Get()
+	defer func() {
+		p.Put(_session)
+		if err := recover(); err != nil {
+			log.Errorln("ExportDB mongodb exec err, ", err)
+			panic(err)
+		}
+		t := time.Since(start)
+		if t >= p.opt.SlowRes && p.opt.SlowRes != 0 {
+			log.Warnln("ExportDB mongodb exec ", t)
+		}
+	}()
+
+	return _session.DB(p.opt.DbName)
 }

@@ -1,7 +1,7 @@
 /*
-    fileName: cdb
-    author: diogoxiang@qq.com
-    date: 2019/6/19
+   fileName: cdb
+   author: diogoxiang@qq.com
+   date: 2019/6/19
 */
 package cdb
 
@@ -10,6 +10,7 @@ import (
 	"github.com/globalsign/mgo/bson"
 	"time"
 )
+
 // 公用的 Fields
 type PublicFields struct {
 	ID        bson.ObjectId `bson:"_id,omitempty" json:"id,omitempty"`
@@ -52,6 +53,7 @@ func excludeDeleted(selector bson.M) bson.M {
 func updatedTime(update bson.M) bson.M {
 	if v, ok := update["$set"]; ok {
 		v.(bson.M)["updatedAt"] = time.Now()
+
 	} else {
 		update["$set"] = bson.M{"updatedAt": time.Now()}
 	}
