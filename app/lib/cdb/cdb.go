@@ -98,7 +98,7 @@ func FindAll(collection string, result interface{}, selector bson.M, fields bson
 
 	conn.GetMgoPool(dbName).Exec(collection, func(c *mgo.Collection) {
 		// err = c.Insert(doc)
-		err = c.Find(excludeDeleted(selector)).Select(fields).Sort(sort...).Skip(skip * limit).Limit(limit).All(result)
+		err = c.Find(excludeDeleted(selector)).Select(fields).Sort(sort...).Skip(skip).Limit(limit).All(result)
 	})
 
 	if err != nil {

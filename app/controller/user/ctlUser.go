@@ -8,13 +8,16 @@ package ctlUser
 import (
 	"apiend-core/app/lib/cdb"
 	"apiend-core/app/lib/response"
+	"apiend-core/app/lib/util"
 	"apiend-core/app/model"
 	"apiend-core/app/model/user"
 	"fmt"
+	"github.com/globalsign/mgo/bson"
 	"github.com/gogf/gf/g"
 	"github.com/gogf/gf/g/net/ghttp"
 	"github.com/gogf/gf/g/os/glog"
 	"github.com/gogf/gf/g/text/gstr"
+	"github.com/gogf/gf/g/util/gconv"
 	"github.com/gogf/gf/g/util/gvalid"
 )
 
@@ -34,6 +37,8 @@ func (c *UserController) Init(r *ghttp.Request) {
 // 公用方法 方法执行完了之后 调用
 func (c *UserController) Shut(r *ghttp.Request) {
 	glog.Println("over ")
+
+
 }
 
 // 注册用户 /user/Register
@@ -74,7 +79,7 @@ func (c *UserController) Register(r *ghttp.Request) {
 	// Inuser.Password = tuser.Password
 
 	// encrypt 参数
-	salt := cdb.Salt(48, false)
+	salt := cdb.Salt(24, false)
 	// secretPassword := cdb.Encrypt(interface{}(tuser.Password).(string), salt)
 	secretPassword := cdb.Encrypt(tuser.Password, salt)
 	Inuser.Password = secretPassword
@@ -123,23 +128,67 @@ func (c *UserController) SignUp(r *ghttp.Request) {
 	}
 
 	// encrypt 参数
-	salt := cdb.Salt(48, false)
+	// salt := cdb.Salt(48, false)
 	// secretPassword := cdb.Encrypt(interface{}(tuser.Password).(string), salt)
-	secretPassword := cdb.Encrypt(tuser.Password, salt)
+	secretPassword := cdb.Encrypt(tuser.Password, uinfo.Salt)
 
-	g.Dump(secretPassword)
-	g.Dump(uinfo)
+	// 密码错误
+	if secretPassword != uinfo.Password {
+		lib_res.Refail(r, 40002, "")
+	}
+
+	// 转换参数
+	euser := gconv.MapDeep(uinfo)
+	delete(euser,"Password")
+	delete(euser,"Salt")
+
+
+	// 生成token
+	token, err := util.CreateTokenByName(uinfo.Username)
+
+
+	// 生成 token 失败
+	if err != nil {
+		model.DoLog(err)
+	}
+
+
+	//登录成功
+	lib_res.Json(r, 200,"done",g.Map{
+		"token":token,
+		"userinfo":euser,
+	})
+
 
 }
 
 // 修改用户信息 /user/UpdateUser
 func (c *UserController) UpdateUser(r *ghttp.Request) {
 	glog.Println("UpdateUser ")
+
+
 }
 
 // 获取用户列表 /user/GetList
 func (c *UserController) GetList(r *ghttp.Request) {
 	glog.Println("GetList ")
+
+	Page := r.GetPostInt("Page")
+	PageCount := r.GetPostInt("PageCount")
+
+	ulist := new(user.UserList)
+
+	ulist.Page = Page
+	ulist.PageCount = PageCount
+
+	err := ulist.GetListPage(bson.M{},bson.M{"Password":0,"Salt":0,})
+
+	if err != nil {
+		model.DoLog(err)
+	}
+
+	lib_res.Json(r,200, "done", gconv.Map(ulist))
+
 }
 
 // 根据用户名 查询用户 信息 /user/GetSearchName
