@@ -36,6 +36,10 @@ func TestSave(t *testing.T) {
 	bs := NewStore(db)
 	bs.Save("key1", []byte("value1"), time.Now().Add(10*time.Second))
 
+	// time.Sleep(2*time.Second)
+	// t.Log(time.Now().Add(time.Duration(10)*time.Minute))
+
+
 	db.View(func(tx *buntdb.Tx) error {
 		v, err := tx.Get("key1")
 		if err != nil {

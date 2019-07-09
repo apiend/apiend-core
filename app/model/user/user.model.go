@@ -14,9 +14,8 @@ type UserInfo struct {
 	Username           string           `bson:"Username" json:"Username"`
 	Password           string           `bson:"Password,omitempty" json:"Password,omitempty"`
 	NickName           string           `bson:"NickName,omitempty" json:"NickName,omitempty"`
-	// 在tag里面加上omitempy，可以在序列化的时候忽略0值或者空值
-	HeadImg string `bson:"HeadImg,omitempty" json:"HeadImg,omitempty"`
-	Salt    string `bson:"Salt,omitempty"  json:"Salt,omitempty"`
+	HeadImg            string           `bson:"HeadImg,omitempty" json:"HeadImg,omitempty"` // 在tag里面加上omitempy，可以在序列化的时候忽略0值或者空值
+	Salt               string           `bson:"Salt,omitempty"  json:"Salt,omitempty"`
 	// Role     Role          `bson:"role" json:"role"`
 	// Status   UserStatus    `bson:"status" json:"status"`
 }

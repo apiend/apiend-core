@@ -6,6 +6,7 @@
 package ctlUser
 
 import (
+	"apiend-core/app/controller"
 	"apiend-core/app/lib/cdb"
 	"apiend-core/app/lib/response"
 	"apiend-core/app/lib/util"
@@ -144,12 +145,13 @@ func (c *UserController) SignUp(r *ghttp.Request) {
 
 
 	// 生成token
-	token, err := util.CreateTokenByName(uinfo.Username)
+	token, err := util.NewToken(uinfo.Username)
 
 
 	// 生成 token 失败
 	if err != nil {
 		model.DoLog(err)
+		lib_res.Refail(r, 40030, fmt.Sprint(err))
 	}
 
 
@@ -158,7 +160,6 @@ func (c *UserController) SignUp(r *ghttp.Request) {
 		"token":token,
 		"userinfo":euser,
 	})
-
 
 }
 
@@ -175,6 +176,13 @@ func (c *UserController) GetList(r *ghttp.Request) {
 
 	Page := r.GetPostInt("Page")
 	PageCount := r.GetPostInt("PageCount")
+	utoken := r.GetPostString("userToken")
+
+	// 验证token 是否合法
+	if controller.CheckToken(utoken) != nil {
+		lib_res.Refail(r, 40003, "用户信息错误")
+	}
+
 
 	ulist := new(user.UserList)
 
@@ -185,6 +193,8 @@ func (c *UserController) GetList(r *ghttp.Request) {
 
 	if err != nil {
 		model.DoLog(err)
+
+		lib_res.Refail(r, 40030, fmt.Sprint(err))
 	}
 
 	lib_res.Json(r,200, "done", gconv.Map(ulist))

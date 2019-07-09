@@ -13,5 +13,9 @@
 - `go.mod`	依赖管理	使用Go Module包管理的依赖描述文件。
 - `main.go` 入口文件	程序入口文件。
 
+## badger
+
+- https://github.com/squiidz/geoalt
+- https://github.com/aspcartman/pcache
 
  

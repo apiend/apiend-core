@@ -79,3 +79,5 @@ func TestMap2Json(t *testing.T) {
 
 	t.Logf("Map2Json 得到 json 字符串内容:%s", jsonStr)
 }
+
+

@@ -76,7 +76,7 @@ func Insert(collection string, doc interface{}) (err error) {
 }
 
 /**
-查找一个
+查找一个  有固定参数.可用.否则用 All
 */
 func FindOne(collection string, result interface{}, selector bson.M, fields bson.M) (err error) {
 	conn.GetMgoPool(dbName).Exec(collection, func(c *mgo.Collection) {

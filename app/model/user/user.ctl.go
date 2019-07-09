@@ -118,7 +118,7 @@ func FindByName(name string) (*UserInfo, error) {
 	return person, nil
 }
 
-//  Find by search txt 公用搜索
+//  Find by search txt 公用搜索 只搜1个
 func FindBySearch(selector bson.M, fields bson.M) (*UserInfo, error) {
 
 	person := new(UserInfo)

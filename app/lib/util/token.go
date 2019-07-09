@@ -18,7 +18,8 @@ var (
 	c       = g.Config()
 	tokenDB = c.GetString("setting.localCacheDB")
 	// 缓存有效时间
-	tokenCacheTime = c.GetInt("setting.cacheTime")
+	// tokenCacheTime = c.GetInt("setting.cacheTime")
+	tokenCachTime =  c.GetDuration("setting.tokenCacheTime")
 )
 
 // remove old test DB if it exists and create a new one
@@ -28,6 +29,7 @@ func getTestDatabase() *buntdb.DB {
 	//if err != nil {
 	//	panic(err)
 	//}
+
 	db, err := buntdb.Open(tokenDB)
 	if err != nil {
 		panic(err)
@@ -44,7 +46,7 @@ func CreateToken(value []byte) (key string, err error) {
 
 	key = GenerateUUID()
 
-	err = bs.Save(key, value, time.Now().Add(time.Duration(tokenCacheTime)*time.Minute))
+	err = bs.Save(key, value, time.Now().Add(tokenCachTime*time.Minute))
 
 	return key, err
 
@@ -85,7 +87,11 @@ func NewToken(uname string) (key string, err error) {
  		vd := gconv.String(v)
 		err = delToken(vd)
 		// 检测是否删除成功
-		if err != nil {
+		if err == buntdb.ErrNotFound  {
+			// return "", errors.New("删除上一个Token失败")
+			// 只做一个记录不返回数据,可以重新生成
+			glog.Debug("删除上一个Token失败")
+		} else if err != nil {
 			return "", err
 		}
 
@@ -116,7 +122,9 @@ func createTokenByName(uname string) (key string, err error) {
 	eValue := gconv.Bytes(tKey)
 	sValue := gconv.String(tKey)
 
-	err = bs.Save(uname, eValue, time.Now().Add(time.Duration(tokenCacheTime)*time.Minute))
+	glog.Print(tokenCachTime)
+
+	err = bs.Save(uname, eValue, time.Now().Add(tokenCachTime*time.Minute))
 
 	return sValue, err
 
@@ -130,7 +138,7 @@ func createTokenByuKey(ukey string, uname string) (err error) {
 	// 存储用户信息(用户名)
 	sValue := gconv.Bytes(uname)
 
-	err = bs.Save(ukey, sValue, time.Now().Add(time.Duration(tokenCacheTime)*time.Minute))
+	err = bs.Save(ukey, sValue, time.Now().Add(tokenCachTime*time.Minute))
 
 	return err
 

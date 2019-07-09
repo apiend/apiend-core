@@ -12,8 +12,11 @@
     cacheTime = "3000"
     # pudge  数据库 主要是用来 存储 auth token
     localCacheDB ="/www/apiend.com/db/tokenStore.db"
-    # token 缓存时间 1 小时
-    tokenCacheTime="1"
+    # token 缓存时间 分钟  1天 1440  3天 4320
+    tokenCacheTime="4320"
+    # bstoreDB 路径 内嵌数据库 主要用的是 badger
+    bstoreDB ="/www/apiend.com/db/bstoreDB"
+
 [mongo]
      # mongoURL
      mongoUrl = "mongodb://dbuser:dbuseradmin@10.0.75.1:27017/apiend"

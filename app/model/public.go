@@ -93,6 +93,7 @@ func DeletedTime(update bson.M) bson.M {
 func DoLog(err error) {
 	if err != nil {
 		glog.Printf("%s", err)
+		glog.Warning(err)
 	}
 }
 
