@@ -2,40 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ffd02297-f2be-41a0-90fe-742015fb04bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/model/analysis/analysis.model.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/model/project/project.ctl..go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/model/project/project_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/model/system/system.model.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/changelog.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/badger/demo1.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/bstore/bstore.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/bstore/bstore_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/bstore/util.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/goQueue/demo.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/storage/example/demo.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/store/badger.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/store/badger_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/store/inmem.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/store/inmem_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/store/store.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/store/store_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controller/user/ctlUser.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/user/ctlUser.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/lib/buntstore/buntstore_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/buntstore/buntstore_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/lib/cdb/cdb.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/cdb/cdb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/lib/response/response.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/response/response.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/lib/response/response_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/response/response_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/lib/util/errorCode.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/response/errorCode.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/lib/util/token.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/util/token.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/lib/util/token_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/util/token_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/model/project/project.ctl..go" beforeDir="false" afterPath="$PROJECT_DIR$/app/model/project/project.ctl..go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/model/project/project.model.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/model/project/project.model.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/model/public.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/model/public.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/model/user/user.ctl.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/model/user/user.ctl.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/model/user/user.model.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/model/user/user.model.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/model/project/project_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/model/project/project_test.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,14 +39,14 @@
           <entry key="project.open.time.3" value="5" />
           <entry key="project.open.time.4" value="5" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.6" value="2" />
+          <entry key="project.open.time.6" value="3" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="32" />
+          <entry key="project.opened" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="go" value="689" />
+          <entry key="go" value="698" />
           <entry key="groovy" value="1" />
           <entry key="keep" value="8" />
           <entry key="md" value="11" />
@@ -89,7 +59,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="DTD" value="25" />
-          <entry key="Go" value="689" />
+          <entry key="Go" value="698" />
           <entry key="Markdown" value="11" />
           <entry key="PLAIN_TEXT" value="9" />
           <entry key="Scratch" value="1" />
@@ -99,7 +69,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="go" value="11821" />
+          <entry key="go" value="12886" />
           <entry key="md" value="228" />
           <entry key="mod" value="215" />
           <entry key="toml" value="242" />
@@ -109,7 +79,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="DTD" value="215" />
-          <entry key="Go" value="11821" />
+          <entry key="Go" value="12886" />
           <entry key="Markdown" value="228" />
           <entry key="PLAIN_TEXT" value="17" />
           <entry key="TOML" value="242" />
@@ -128,59 +98,64 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/model/project/project.model.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="176">
+              <caret line="37" column="24" lean-forward="true" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/model/public.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="17" column="44" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/user/ctlUser.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="233">
+              <caret line="212" column="1" lean-forward="true" selection-start-line="212" selection-start-column="1" selection-end-line="212" selection-end-column="1" />
               <folding>
-                <element signature="e#92#165#0" expanded="true" />
+                <element signature="e#82#500#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/model/project/project.ctl..go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="69" column="17" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/model/project/project.ctl..go">
+        <entry file="file://$PROJECT_DIR$/app/model/project/project_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="47" column="22" lean-forward="true" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
+            <state relative-caret-position="265">
+              <caret line="105" column="16" lean-forward="true" selection-start-line="105" selection-start-column="16" selection-end-line="105" selection-end-column="16" />
               <folding>
-                <element signature="e#94#156#0" expanded="true" />
+                <element signature="e#94#233#0" expanded="true" />
+                <element signature="n#!!block;n#TestInsert#0" />
+                <element signature="n#!!block;n#TestInsertAddUser#0" />
+                <element signature="n#!!block;n#TestInsertAddUserList#0" />
+                <element signature="e#1227#1232#0" />
+                <element signature="e#1945#1950#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/model/project/project_test.go">
+        <entry file="file://$PROJECT_DIR$/app/model/user/user_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="60" column="33" lean-forward="true" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/Go/src/runtime/panic.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="689" column="31" lean-forward="true" selection-start-line="689" selection-start-column="31" selection-end-line="689" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/lib/util/judge.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="42" column="16" lean-forward="true" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/lib/cdb/cdb_test.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="309" column="24" lean-forward="true" selection-start-line="309" selection-start-column="24" selection-end-line="309" selection-end-column="24" />
+            <state relative-caret-position="26">
+              <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -188,8 +163,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/lib/cdb/cdb.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="78" column="22" selection-start-line="78" selection-start-column="22" selection-end-line="78" selection-end-column="22" />
+            <state relative-caret-position="469">
+              <caret line="106" column="14" lean-forward="true" selection-start-line="106" selection-start-column="14" selection-end-line="106" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -197,8 +172,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/model/user/user.ctl.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="98" column="22" lean-forward="true" selection-start-line="92" selection-start-column="4" selection-end-line="98" selection-end-column="22" />
+            <state relative-caret-position="161">
+              <caret line="137" column="8" selection-start-line="137" selection-start-column="4" selection-end-line="137" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -206,8 +181,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/model/user/user.model.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" selection-end-column="53" />
+            <state relative-caret-position="52">
+              <caret line="14" column="65" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -310,11 +285,11 @@
         <option value="$PROJECT_DIR$/app/lib/util/token.go" />
         <option value="$PROJECT_DIR$/config/config.toml" />
         <option value="$PROJECT_DIR$/app/model/public.go" />
-        <option value="$PROJECT_DIR$/app/model/project/project.model.go" />
         <option value="$PROJECT_DIR$/app/model/user/user.ctl.go" />
         <option value="$PROJECT_DIR$/app/lib/cdb/cdb.go" />
-        <option value="$PROJECT_DIR$/app/model/project/project_test.go" />
         <option value="$PROJECT_DIR$/app/model/project/project.ctl..go" />
+        <option value="$PROJECT_DIR$/app/model/project/project.model.go" />
+        <option value="$PROJECT_DIR$/app/model/project/project_test.go" />
       </list>
     </option>
   </component>
@@ -324,10 +299,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="594" />
-    <option name="width" value="2582" />
-    <option name="height" value="1732" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="46" />
+    <option name="width" value="3166" />
+    <option name="height" value="1622" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -483,13 +458,24 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Test.TestFindByid in apiend-core/app/model/project">
+  <component name="RunManager" selected="Go Test.TestFindbyUserList in apiend-core/app/model/project">
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
       <module name="apiend-core" />
       <working_directory value="$PROJECT_DIR$/" />
       <kind value="FILE" />
       <filePath value="$PROJECT_DIR$/main.go" />
       <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestFindBySearch in apiend-core/app/model/project" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="apiend-core" />
+      <working_directory value="$PROJECT_DIR$/app/model/project" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="apiend-core/app/model/project" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestFindBySearch$" />
       <method v="2" />
     </configuration>
     <configuration name="TestFindByid in apiend-core/app/model/project" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -503,7 +489,7 @@
       <pattern value="^TestFindByid$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestInsert in apiend-core/app/model/project" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestFindbyUserList in apiend-core/app/model/project" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="apiend-core" />
       <working_directory value="$PROJECT_DIR$/app/model/project" />
       <framework value="gotest" />
@@ -511,7 +497,7 @@
       <package value="apiend-core/app/model/project" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestInsert$" />
+      <pattern value="^TestFindbyUserList$" />
       <method v="2" />
     </configuration>
     <configuration name="TestInsertAddUser in apiend-core/app/model/project" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -525,43 +511,32 @@
       <pattern value="^TestInsertAddUser$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestNewToken in apiend-core/app/lib/util" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestInsertAddUserList in apiend-core/app/model/project" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="apiend-core" />
-      <working_directory value="$PROJECT_DIR$/app/lib/util" />
+      <working_directory value="$PROJECT_DIR$/app/model/project" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="apiend-core/app/lib/util" />
+      <package value="apiend-core/app/model/project" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestNewToken$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestSave in apiend-core/app/lib/buntstore" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="apiend-core" />
-      <working_directory value="$PROJECT_DIR$/app/lib/buntstore" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="apiend-core/app/lib/buntstore" />
-      <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestSave$" />
+      <pattern value="^TestInsertAddUserList$" />
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Go Build.go build main.go" />
-      <item itemvalue="Go Test.TestNewToken in apiend-core/app/lib/util" />
-      <item itemvalue="Go Test.TestSave in apiend-core/app/lib/buntstore" />
-      <item itemvalue="Go Test.TestInsert in apiend-core/app/model/project" />
       <item itemvalue="Go Test.TestInsertAddUser in apiend-core/app/model/project" />
       <item itemvalue="Go Test.TestFindByid in apiend-core/app/model/project" />
+      <item itemvalue="Go Test.TestFindBySearch in apiend-core/app/model/project" />
+      <item itemvalue="Go Test.TestInsertAddUserList in apiend-core/app/model/project" />
+      <item itemvalue="Go Test.TestFindbyUserList in apiend-core/app/model/project" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestFindbyUserList in apiend-core/app/model/project" />
+        <item itemvalue="Go Test.TestInsertAddUserList in apiend-core/app/model/project" />
+        <item itemvalue="Go Test.TestFindBySearch in apiend-core/app/model/project" />
         <item itemvalue="Go Test.TestFindByid in apiend-core/app/model/project" />
         <item itemvalue="Go Test.TestInsertAddUser in apiend-core/app/model/project" />
-        <item itemvalue="Go Test.TestInsert in apiend-core/app/model/project" />
-        <item itemvalue="Go Test.TestSave in apiend-core/app/lib/buntstore" />
-        <item itemvalue="Go Test.TestNewToken in apiend-core/app/lib/util" />
       </list>
     </recent_temporary>
   </component>
@@ -569,35 +544,35 @@
     <option name="ACTIVE_ACTIONS" value=",Show Private Members" />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestInsertAddUser_in_apiend-core_app_model_project - 2019.07.09 at 17h 39m 01s.xml">
-      <configuration name="TestInsertAddUser in apiend-core/app/model/project" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestInsertAddUserList_in_apiend-core_app_model_project - 2019.07.12 at 15h 41m 21s.xml">
+      <configuration name="TestInsertAddUserList in apiend-core/app/model/project" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestFindByid_in_apiend-core_app_model_project - 2019.07.09 at 17h 48m 51s.xml">
-      <configuration name="TestFindByid in apiend-core/app/model/project" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestFindBySearch_in_apiend-core_app_model_project - 2019.07.12 at 15h 45m 16s.xml">
+      <configuration name="TestFindBySearch in apiend-core/app/model/project" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestFindByid_in_apiend-core_app_model_project - 2019.07.09 at 17h 50m 49s.xml">
-      <configuration name="TestFindByid in apiend-core/app/model/project" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestFindbyUserList_in_apiend-core_app_model_project - 2019.07.12 at 15h 54m 58s.xml">
+      <configuration name="TestFindbyUserList in apiend-core/app/model/project" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestFindByid_in_apiend-core_app_model_project - 2019.07.09 at 17h 55m 57s.xml">
-      <configuration name="TestFindByid in apiend-core/app/model/project" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestFindbyUserList_in_apiend-core_app_model_project - 2019.07.12 at 15h 55m 45s.xml">
+      <configuration name="TestFindbyUserList in apiend-core/app/model/project" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestFindByid_in_apiend-core_app_model_project - 2019.07.09 at 17h 58m 24s.xml">
-      <configuration name="TestFindByid in apiend-core/app/model/project" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestFindbyUserList_in_apiend-core_app_model_project - 2019.07.12 at 16h 03m 27s.xml">
+      <configuration name="TestFindbyUserList in apiend-core/app/model/project" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestFindByid_in_apiend-core_app_model_project - 2019.07.09 at 17h 59m 02s.xml">
-      <configuration name="TestFindByid in apiend-core/app/model/project" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestFindbyUserList_in_apiend-core_app_model_project - 2019.07.12 at 16h 13m 58s.xml">
+      <configuration name="TestFindbyUserList in apiend-core/app/model/project" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestFindByid_in_apiend-core_app_model_project - 2019.07.09 at 18h 05m 20s.xml">
-      <configuration name="TestFindByid in apiend-core/app/model/project" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestFindbyUserList_in_apiend-core_app_model_project - 2019.07.12 at 16h 15m 02s.xml">
+      <configuration name="TestFindbyUserList in apiend-core/app/model/project" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestFindByid_in_apiend-core_app_model_project - 2019.07.09 at 18h 06m 30s.xml">
-      <configuration name="TestFindByid in apiend-core/app/model/project" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestInsertAddUserList_in_apiend-core_app_model_project - 2019.07.12 at 16h 15m 46s.xml">
+      <configuration name="TestInsertAddUserList in apiend-core/app/model/project" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestFindByid_in_apiend-core_app_model_project - 2019.07.09 at 18h 07m 20s.xml">
-      <configuration name="TestFindByid in apiend-core/app/model/project" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestInsertAddUserList_in_apiend-core_app_model_project - 2019.07.12 at 16h 16m 33s.xml">
+      <configuration name="TestInsertAddUserList in apiend-core/app/model/project" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestFindByid_in_apiend-core_app_model_project - 2019.07.09 at 18h 09m 09s.xml">
-      <configuration name="TestFindByid in apiend-core/app/model/project" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestFindbyUserList_in_apiend-core_app_model_project - 2019.07.12 at 16h 19m 02s.xml">
+      <configuration name="TestFindbyUserList in apiend-core/app/model/project" configurationId="GoTestRunConfiguration" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -610,14 +585,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="297" y="0" width="1291" height="866" extended-state="0" />
+    <frame x="23" y="0" width="1583" height="811" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49932525" visible="true" weight="0.17680454" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49932525" visible="true" weight="0.1442623" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32928476" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3160763" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.49337262" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.26975477" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -681,20 +656,12 @@
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/library/bstore/bstore_test.go</url>
           <line>31</line>
-          <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/app/lib/util/token.go</url>
           <line>126</line>
-          <properties />
           <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/app/model/project/project.ctl..go</url>
-          <line>54</line>
-          <properties />
-          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -704,9 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="268">
           <caret line="29" column="35" lean-forward="true" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
-          <folding>
-            <element signature="e#90#190#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -714,9 +678,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="78">
           <caret line="21" column="15" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="15" />
-          <folding>
-            <element signature="e#101#201#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -738,9 +699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#17#45#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -833,9 +791,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
-          <folding>
-            <element signature="e#81#224#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -922,23 +877,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/user/ctlUser.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1707">
-          <caret line="145" lean-forward="true" selection-start-line="145" selection-end-line="145" />
-          <folding>
-            <element signature="e#82#500#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/lib/buntstore/buntstore.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-286">
           <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding>
-            <element signature="e#88#135#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -960,9 +902,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1014">
           <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
-          <folding>
-            <element signature="e#92#151#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -976,69 +915,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/user/user.model.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/go/pkg/mod/github.com/globalsign/mgo@v0.0.0-20181015135952-eeefdecb41b8/session.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-14662">
           <caret line="3911" column="5" selection-start-line="3911" selection-start-column="5" selection-end-line="3911" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/lib/cdb/cdb_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="309" column="24" lean-forward="true" selection-start-line="309" selection-start-column="24" selection-end-line="309" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/public.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="92" column="23" lean-forward="true" selection-start-line="92" selection-start-column="23" selection-end-line="92" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/user/user_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="63" column="5" lean-forward="true" selection-start-line="58" selection-start-column="4" selection-end-line="63" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/lib/cdb/cdb.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="78" column="22" selection-start-line="78" selection-start-column="22" selection-end-line="78" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/project/project.model.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="e#92#165#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/lib/util/judge.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="42" column="16" lean-forward="true" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/user/user.ctl.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="98" column="22" lean-forward="true" selection-start-line="92" selection-start-column="4" selection-end-line="98" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -1058,24 +938,95 @@
     </entry>
     <entry file="file://C:/Go/src/runtime/panic.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="689" column="31" lean-forward="true" selection-start-line="689" selection-start-column="31" selection-end-line="689" selection-end-column="31" />
+        <state relative-caret-position="17810">
+          <caret line="689" column="31" selection-start-line="689" selection-start-column="31" selection-end-line="689" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/project/project_test.go">
+    <entry file="file://$PROJECT_DIR$/app/lib/util/judge.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="60" column="33" lean-forward="true" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
+        <state relative-caret-position="1014">
+          <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/lib/cdb/cdb_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7774">
+          <caret line="309" column="24" selection-start-line="309" selection-start-column="24" selection-end-line="309" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/lib/cdb/cdb.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="106" column="14" lean-forward="true" selection-start-line="106" selection-start-column="14" selection-end-line="106" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/user/user.ctl.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="137" column="8" selection-start-line="137" selection-start-column="4" selection-end-line="137" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/public.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="17" column="44" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/user/ctlUser.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="212" column="1" lean-forward="true" selection-start-line="212" selection-start-column="1" selection-end-line="212" selection-end-column="1" />
+          <folding>
+            <element signature="e#82#500#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/user/user.model.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="14" column="65" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/user/user_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/project/project.model.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="37" column="24" lean-forward="true" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/model/project/project.ctl..go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="47" column="22" lean-forward="true" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
+        <state relative-caret-position="161">
+          <caret line="69" column="17" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/project/project_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="105" column="16" lean-forward="true" selection-start-line="105" selection-start-column="16" selection-end-line="105" selection-end-column="16" />
           <folding>
-            <element signature="e#94#156#0" expanded="true" />
+            <element signature="e#94#233#0" expanded="true" />
+            <element signature="n#!!block;n#TestInsert#0" />
+            <element signature="n#!!block;n#TestInsertAddUser#0" />
+            <element signature="n#!!block;n#TestInsertAddUserList#0" />
+            <element signature="e#1227#1232#0" />
+            <element signature="e#1945#1950#0" />
           </folding>
         </state>
       </provider>

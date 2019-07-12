@@ -16,6 +16,11 @@ import (
 // 	Role string
 // }
 
+type UserArray struct {
+	Uid   int
+	Uname string
+}
+
 // 项目model
 type Project struct {
 	model.PublicFields `bson:",inline"` // 公共字段，id和时间
@@ -23,11 +28,11 @@ type Project struct {
 	Uid         int           `bson:"Uid" json:"Uid"` // 创建 者用户ID
 	ProjectName string        `bson:"ProjectName" json:"ProjectName"`
 	ProjectUrl  string        `bson:"ProjectUrl" json:"ProjectUrl"`
-	Description string        `bson:"Description" json:"Description"`
-	SwaggerUrl  string        `bson:"SwaggerUrl" json:"SwaggerUrl"`
+	Description string        `bson:"Description,omitempty" json:"Description,omitempty"`
+	SwaggerUrl  string        `bson:"SwaggerUrl,omitempty" json:"SwaggerUrl,omitempty"`
 	Status      ProStatus     `bson:"Status" json:"Status"` // 项目状态
-	Users       []*mgo.DBRef  `bson:"Users" json:"Users"`   // 当前项目组可编辑人员ID
-
+	Users       []*mgo.DBRef  `bson:"Users,omitempty" json:"Users,omitempty"`   // 当前项目组可编辑人员ID
+	UserList    []*UserArray	  `bson:"UserList"  json:"UserList"`	 // 当前项目组可编辑人员用户信息
 }
 
 // 项目状态 0 为正常 1为封禁 -1为删除

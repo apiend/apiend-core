@@ -63,3 +63,29 @@ func FindByid(sid bson.M) (*Project, error){
 	return proinfo, nil
 
 }
+
+/**
+	by搜索 信息可以自己定义 返回列表形式
+ */
+func FindBySearch(selector bson.M, fields bson.M, skip int, limit int, sort ...string)  ([]Project, error){
+	proList := []Project{}
+
+
+	// 当传参数 的时候 默认搜索10个
+	if limit ==0{
+		limit =10
+	}
+
+
+	err := cdb.FindAll(CollectionName,&proList,selector,fields,skip,limit,sort...)
+
+	if err != nil {
+		model.DoLog(err)
+		// panic(err)
+		return nil, err
+	}
+
+	return proList, nil
+
+
+}
