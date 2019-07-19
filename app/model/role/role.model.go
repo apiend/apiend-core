@@ -2,6 +2,9 @@
     fileName: role
     author: diogoxiang@qq.com
     date: 2019/6/30
+	用户权限的拆分
+	1. 用户所署team  所在组 拥用的权限  Role
+
 */
 package role
 
@@ -11,16 +14,6 @@ import (
 	"time"
 )
 
-//Contest struct
-type Contest struct {
-	Id                 bson.ObjectId `json:"id" bson:"_id,omitempty"`
-	Title              string        `bson:"Title" json:"Title"`
-	Description        string        `bson:"Description" json:"Description"`
-	ParticipatingTeams []*mgo.DBRef  `bson:"ParticipatingTeams" json:"ParticipatingTeams"`
-	ImageUrl           string        `bson:"ImageUrl" json:"ImageUrl"`
-	StartDate          time.Time     `bson:"StartDate" json:"StartDate"`
-	EndDate            time.Time     `bson:"EndDate" json:"EndDate"`
-}
 
 // 团队
 type Team struct {
@@ -28,6 +21,7 @@ type Team struct {
 	Users    []*mgo.DBRef
 	TeamName string
 	Motto    string
+	RoleList []Role  // 权限集合
 }
 
 // 权限
@@ -35,14 +29,7 @@ type Role struct {
 	Id          bson.ObjectId `json:"id" bson:"_id,omitempty"`
 	Title       string
 	ImageUrl    string
-	User        *mgo.DBRef
-	Traits      []string
-	Description string
-	Script      string
-	Gender      string
-	Age         int
 	TimeStamp   time.Time
 	Deadline    time.Time
-	Comment     []*mgo.DBRef
-	Audition    []*mgo.DBRef
+
 }

@@ -15,6 +15,7 @@ import (
 	"fmt"
 	"github.com/globalsign/mgo/bson"
 	"github.com/gogf/gf/g"
+	"github.com/gogf/gf/g/encoding/gjson"
 	"github.com/gogf/gf/g/net/ghttp"
 	"github.com/gogf/gf/g/os/glog"
 	"github.com/gogf/gf/g/text/gstr"
@@ -143,9 +144,15 @@ func (c *UserController) SignUp(r *ghttp.Request) {
 	delete(euser,"Password")
 	delete(euser,"Salt")
 
+	// fmt.Println(g.Dump(euser))
+	// g.Dump(euser)
+	// fmt.Println()
 
+	// fmt.Println(gjson.Encode(euser))
+
+	temp,_ :=gjson.Encode(euser)
 	// 生成token
-	token, err := util.NewToken(uinfo.Username)
+	token, err := util.NewCreateToken(uinfo.Username,temp)
 
 
 	// 生成 token 失败

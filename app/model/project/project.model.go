@@ -32,7 +32,7 @@ type Project struct {
 	SwaggerUrl  string        `bson:"SwaggerUrl,omitempty" json:"SwaggerUrl,omitempty"`
 	Status      ProStatus     `bson:"Status" json:"Status"` // 项目状态
 	Users       []*mgo.DBRef  `bson:"Users,omitempty" json:"Users,omitempty"`   // 当前项目组可编辑人员ID
-	UserList    []*UserArray	  `bson:"UserList"  json:"UserList"`	 // 当前项目组可编辑人员用户信息
+	UserList    []*UserArray	  `bson:"UserList,omitempty"  json:"UserList,omitempty"`	 // 当前项目组可编辑人员用户信息
 }
 
 // 项目状态 0 为正常 1为封禁 -1为删除
@@ -49,4 +49,13 @@ func (s ProStatus) Defined() bool {
 		return true
 	}
 	return false
+}
+
+
+//  列表信息 分页参数
+type ProList struct {
+	Page      int // 当前页码
+	PageCount int // 当前页面的数量
+	TotalNum  int // 数量总数
+	List      []Project
 }

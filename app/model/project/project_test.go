@@ -6,19 +6,22 @@
 package project
 
 import (
- 	"apiend-core/app/model/user"
+	"apiend-core/app/model/user"
 	"fmt"
 	"github.com/globalsign/mgo"
 	"github.com/globalsign/mgo/bson"
 	"github.com/gogf/gf/g"
+	"github.com/gogf/gf/g/os/gtime"
 	"testing"
+	"time"
 )
 
+// 测试插入项目
 func TestInsert(t *testing.T) {
 	t.Log("插入项目")
 
 	model := new(Project)
-	model.ProjectName = "project2019"
+	model.ProjectName = "project2019aa"
 	umodel :=new(user.UserInfo)
 	umodel.Uid =10028
 	err := Insert(model,umodel)
@@ -154,4 +157,38 @@ func TestFindbyUserList(t *testing.T)  {
 	t.Log(err)
 	g.Dump(prolist)
 
+}
+
+
+// 软 删除
+func TestDelOne(t *testing.T) {
+
+	// 根据 Pid 删除
+	selector := bson.M{
+			"Pid":11,
+	}
+
+	err := DelOne(selector)
+
+	t.Log(err)
+
+}
+
+// 批量删除 根据日间搜索
+func TestDelAll(t *testing.T) {
+	cstLocal, _ := time.LoadLocation("Asia/Shanghai")
+	etime,_ :=gtime.StrToTime("2019-07-16T11:24:33.642")
+	t.Log(etime.In(cstLocal))
+	// t.Log(time.Now().UTC())
+	selector := bson.M{
+			"CreatedAt":bson.M{
+				"$gt":etime.In(cstLocal),
+			},
+	}
+
+
+	num,err := DelAll(selector)
+
+	t.Log(err)
+	t.Log(num)
 }

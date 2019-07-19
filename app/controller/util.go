@@ -8,6 +8,7 @@ package controller
 import (
 	"apiend-core/app/lib/eError"
 	"apiend-core/app/lib/util"
+	"github.com/gogf/gf/g/encoding/gjson"
 	"github.com/gogf/gf/g/os/glog"
 )
 
@@ -32,4 +33,24 @@ func CheckToken(u string) error {
 		return err
 	}
 	return nil
+}
+
+// 根据 token 获取缓存数据
+func GetUinfoToken(u string) (info *gjson.Json,  err error) {
+	if "" == u {
+		err = eError.NewError(40035, "不合法的参数")
+		return nil,err
+	}
+	v, fond, err := util.ValidTokenKey(u)
+
+	if !fond {
+		err = eError.NewError(40035, "用户信息错误")
+		return nil,err
+	}
+
+	temp,err := gjson.DecodeToJson(v)
+
+	glog.Println(temp.Dump())
+
+	return temp,err
 }

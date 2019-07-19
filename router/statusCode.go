@@ -1,12 +1,12 @@
 package router
 
 import (
-	"github.com/gogf/gf/g"
+	// "github.com/gogf/gf/g"
 	"github.com/gogf/gf/g/net/ghttp"
 )
 
-func init() {
-	s := g.Server()
+func StatusCode(s *ghttp.Server) {
+	// s := g.Server()
 	// 统一处理一些错误
 	s.BindStatusHandlerByMap(map[int]ghttp.HandlerFunc{
 		403: func(r *ghttp.Request) { r.Response.Writeln("403") },
