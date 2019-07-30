@@ -83,8 +83,10 @@ func (c *ProController) UpdataProject(r *ghttp.Request) {
 	// 修改信息project
 	pid := r.GetPostInt("pid") // 获取用户的ID
 	utoken := r.GetPostString("userToken")
+
+	uinfo, err := controller.GetUinfoToken(utoken)
 	// 验证token 是否合法
-	if controller.CheckToken(utoken) != nil {
+	if err != nil {
 		lib_res.Refail(r, 40003, "用户信息错误")
 	}
 
@@ -97,6 +99,11 @@ func (c *ProController) UpdataProject(r *ghttp.Request) {
 	if err != nil {
 		model.DoLog(err)
 		lib_res.Refail(r, 40032, fmt.Sprint(err))
+	}
+
+	// 验证当前用户是否有修改权限
+	if proInfo.Uid != uinfo.GetInt("Uid") {
+		lib_res.Refail(r, 30002, "")
 	}
 
 	// var setM bson.M

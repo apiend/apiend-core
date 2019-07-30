@@ -49,13 +49,40 @@ func Insert(m *MockInfo, p *project.Project) error {
 //根据条件查询一个
 func FindBySearchOne(selector bson.M) (*MockInfo,error)  {
 
-	return nil,nil
+	newMockInfo := new(MockInfo)
+
+	err := cdb.FindOne(CollectionName, newMockInfo, selector, nil)
+
+	if err != nil {
+		model.DoLog(err)
+		// panic(err)
+		return nil, err
+	}
+
+	return newMockInfo, nil
+
 }
 
 // 根据条件查询所有数据
 func FindBySearchAll(selector bson.M, fields bson.M, skip int, limit int, sort ...string) ([]MockInfo,error)  {
 
-	return nil, nil
+	proList := []MockInfo{}
+
+	// 当传参数 的时候 默认搜索10个
+	if limit == 0 {
+		limit = 10
+	}
+
+	err := cdb.FindAll(CollectionName, &proList, selector, fields, skip, limit, sort...)
+
+	if err != nil {
+		model.DoLog(err)
+		// panic(err)
+		return nil, err
+	}
+
+	return proList, nil
+
 }
 
 /**

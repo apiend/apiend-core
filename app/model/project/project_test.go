@@ -21,7 +21,7 @@ func TestInsert(t *testing.T) {
 	t.Log("插入项目")
 
 	model := new(Project)
-	model.ProjectName = "project2019aa"
+	model.ProjectName = "project2019aa7222"
 	umodel :=new(user.UserInfo)
 	umodel.Uid =10028
 	err := Insert(model,umodel)

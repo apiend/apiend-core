@@ -18,6 +18,8 @@ func init()  {
 
 	// 公用 及错误码 初始化
 	StatusCode(s)
+	// 系统配置类
+	SystemInitRouter(s)
 	// 初始化 用户API
 	UserInitRouter(s)
 	// 项目API

@@ -35,7 +35,7 @@ func CheckToken(u string) error {
 	return nil
 }
 
-// 根据 token 获取缓存数据
+// 根据 token 获取缓存数据 用户信息
 func GetUinfoToken(u string) (info *gjson.Json,  err error) {
 	if "" == u {
 		err = eError.NewError(40035, "不合法的参数")
@@ -50,7 +50,7 @@ func GetUinfoToken(u string) (info *gjson.Json,  err error) {
 
 	temp,err := gjson.DecodeToJson(v)
 
-	glog.Println(temp.Dump())
+	// glog.Println(temp.Dump())
 
 	return temp,err
 }

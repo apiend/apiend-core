@@ -39,13 +39,13 @@ type Project struct {
 type ProStatus int
 
 const (
-	UserBanned  ProStatus = -1
-	UserActived ProStatus = 1
+	ProBanned  ProStatus = -1
+	ProActived ProStatus = 1
 )
 
 func (s ProStatus) Defined() bool {
 	switch s {
-	case UserBanned, UserActived:
+	case ProBanned, ProActived:
 		return true
 	}
 	return false
