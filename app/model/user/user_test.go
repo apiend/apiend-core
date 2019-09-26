@@ -86,7 +86,7 @@ func TestUpdateUser(t *testing.T) {
 
 func TestFindById(t *testing.T) {
 
-	oid := "5d15b82d8a5edb2ea813b1d9"
+	oid := "5d1da8908a5edb09980a7f29"
 	puser , err := FindById(oid)
 
 	if err != nil {

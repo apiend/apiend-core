@@ -28,6 +28,9 @@ func init()  {
 	// mock
 	MockInitRouter(s)
 
+	// 初始化文档类
+	EpostInitRouter(s)
+
 	// 某些浏览器直接请求favicon.ico文件，特别是产生404时
 	//s.SetRewrite("/favicon.ico", "/favicon.ico")
 

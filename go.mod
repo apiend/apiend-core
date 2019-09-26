@@ -49,5 +49,4 @@ require (
 	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
 	gopkg.in/redis.v5 v5.2.9
 	qiniupkg.com/x v7.0.8+incompatible // indirect
-
 )

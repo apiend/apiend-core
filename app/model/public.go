@@ -9,6 +9,7 @@ import (
 	"errors"
 	"github.com/globalsign/mgo/bson"
 	"github.com/gogf/gf/g/os/glog"
+	"github.com/gogf/gf/g/os/gtime"
 	"time"
 )
 
@@ -23,7 +24,8 @@ type PublicFields struct {
 
 // SetFieldsValue 设置公共字段值，在插入数据时使用
 func (p *PublicFields) SetFieldsValue() {
-	now := time.Now().UTC()
+	// now := time.Now().UTC()
+	now := gtime.Now().Time
 	if !p.ID.Valid() {
 		p.ID = bson.NewObjectId()
 	}

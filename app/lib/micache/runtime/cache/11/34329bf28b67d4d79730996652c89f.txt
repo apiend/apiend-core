@@ -1,0 +1,1 @@
+{"Time":3600,"Value":{"Uid":20,"UserName":"diogose"},"Expires":1565348207,"FilePath":"runtime/cache/11/34329bf28b67d4d79730996652c89f.txt"}
