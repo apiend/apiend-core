@@ -12,7 +12,7 @@ import (
 )
 
 /**
-	DBref数组应当是断言为[]interface{}，[]map[string]interface就应该还往里面循环
+	DBref 数组应当是断言为[]interface{}，[]map[string]interface就应该还往里面循环
 	这里面有坑  待更加熟悉golang后来优化
 */
 func FilterResult(m bson.M) map[string]interface{} {

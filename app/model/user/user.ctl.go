@@ -8,6 +8,7 @@ package user
 import (
 	"apiend-core/app/lib/cdb"
 	"apiend-core/app/model"
+
 	"github.com/globalsign/mgo/bson"
 )
 
@@ -64,7 +65,7 @@ func InsertUser(user *UserInfo) error {
 	return nil
 }
 
-//UpdateUser updates a user with the given id and handler made struct
+// UpdateUser updates a user with the given id and handler made struct
 func UpdateUser(selector bson.M, update bson.M) error {
 	err := cdb.UpdateOne(CollectionName, selector, update)
 	if err != nil {
@@ -88,7 +89,6 @@ func FindById(id string) (*UserInfo, error) {
 		"Password": 0,
 	}
 	err := cdb.FindOne(CollectionName, person, selector, fielder)
-
 
 	if err != nil {
 		model.DoLog(err)
@@ -134,17 +134,17 @@ func FindBySearch(selector bson.M, fields bson.M) (*UserInfo, error) {
 }
 
 // 获取用户列表
-func (list *UserList) GetListPage(selector bson.M, fields bson.M) error{
+func (list *UserList) GetListPage(selector bson.M, fields bson.M) error {
 	Skip := (list.Page - 1) * list.PageCount
 	Limitr := list.PageCount
-	err := cdb.FindAll(CollectionName,&list.List,selector,fields, Skip, Limitr,"-CreatedAt","-Uid")
+	err := cdb.FindAll(CollectionName, &list.List, selector, fields, Skip, Limitr, "-CreatedAt", "-Uid")
 
-	list.TotalNum, err = cdb.Count(CollectionName,selector)
+	list.TotalNum, err = cdb.Count(CollectionName, selector)
 
 	if err != nil {
 		model.DoLog(err)
 		// panic(err)
-		return   err
+		return err
 	}
 	return nil
 }

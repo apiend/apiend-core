@@ -44,6 +44,7 @@ func init()  {
 	//	ghttp.HOOK_BEFORE_CLOSE:  func(r *ghttp.Request) { glog.Println(ghttp.HOOK_BEFORE_CLOSE) },
 	//	ghttp.HOOK_AFTER_CLOSE:   func(r *ghttp.Request) { glog.Println(ghttp.HOOK_AFTER_CLOSE) },
 	//})
+
 	// 测试hook 功能
 	p := "/check"
 	s.BindHandler(p, HookHandler)

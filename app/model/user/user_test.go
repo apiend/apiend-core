@@ -7,11 +7,12 @@ package user
 
 import (
 	"fmt"
-	"github.com/globalsign/mgo/bson"
 	"sync"
 	"sync/atomic"
 	"testing"
 	"time"
+
+	"github.com/globalsign/mgo/bson"
 )
 
 func TestUserInfo_Create(t *testing.T) {
@@ -64,19 +65,32 @@ func TestInsertUser(t *testing.T) {
 	}
 }
 
+func BenchmarkInsertUser(b *testing.B) {
+	model := new(UserInfo)
+	b.ResetTimer()
+
+	for i := 0; i < b.N; i++ {
+		model.NickName = fmt.Sprintf("%v_%s", i, "diogoxiang")
+
+		_ = InsertUser(model)
+
+	}
+
+}
+
 func TestUpdateUser(t *testing.T) {
 
 	selector := bson.M{
-			"Uid":5010,
+		"Uid": 5010,
 	}
 	chance := bson.M{
-		"$set":bson.M{
-			"NickName":"modfiyDio",
-			"Username":"diogoxiang",
+		"$set": bson.M{
+			"NickName": "modfiyDio",
+			"Username": "diogoxiang",
 		},
 	}
 
-	err := UpdateUser(selector,chance)
+	err := UpdateUser(selector, chance)
 
 	if err != nil {
 		t.Error(err)
@@ -87,7 +101,7 @@ func TestUpdateUser(t *testing.T) {
 func TestFindById(t *testing.T) {
 
 	oid := "5d1da8908a5edb09980a7f29"
-	puser , err := FindById(oid)
+	puser, err := FindById(oid)
 
 	if err != nil {
 		t.Error(err)

@@ -17,7 +17,7 @@ func StatusCode(s *ghttp.Server) {
 	s.BindHookHandlerByMap("/*any", map[string]ghttp.HandlerFunc{
 		"BeforeServe": func(r *ghttp.Request) {
 
-			//r.Response.CORSDefault()
+			// r.Response.CORSDefault()
 			r.Response.CORS(ghttp.CORSOptions{
 				AllowOrigin: "*",
 			})
